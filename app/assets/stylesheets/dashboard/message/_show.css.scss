@@ -1,0 +1,11 @@
+div.content {
+  p.info {
+    font-size: 13px;
+    color: $primary-color;
+    margin: 5px 0px;
+    
+    em {
+      color: $text-color;
+    }
+  }
+}

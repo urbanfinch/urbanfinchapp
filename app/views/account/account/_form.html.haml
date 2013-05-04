@@ -1,0 +1,29 @@
+= render :partial => 'shared/error', :locals => {:object => account}
+= form_for account, :url => url do |f|
+  %div{:id => 'account', :class => 'content_div'}
+    %h2 Account
+    %hr
+    %div
+      = f.label :title, 'Title'
+      = f.text_field :title, :required => true
+    %div
+      = f.label :token, 'Token'
+      = f.text_field :token, :required => true
+  %div{:id => 'billing', :class => 'content_div'}
+    %h2 Billing
+    %hr
+    %p= "Account Created: #{account.created_at.strftime("%m/%d/%Y")}"
+    %p= "Account Type: Beta"
+  %div{:id => 'api', :class => 'content_div'}
+    %h2 API Key
+    %hr
+    %p Information about API usage...
+    %div
+      = f.label :api_secret, 'API Key'
+      = f.text_field :api_secret, :disabled => true
+    %div
+      = f.label :regenerate
+      = link_to 'Regenerate API Key', regenerate_account_account_path, :id => 'regenerate', :class => 'button', :confirm => 'Are you sure?'
+    %div
+      = f.label :api_active, 'Enable API access'
+      = f.check_box :api_active

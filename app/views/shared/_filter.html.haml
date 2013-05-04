@@ -1,0 +1,23 @@
+.filter
+  .filter_container
+    .filter_nav
+      %span Filter:
+      %nav
+        = link_to 'All', send(path, params.merge(:filter => 'all')), :class => ('selected' if params[:filter] == 'all' || params[:filter].nil?)
+        = link_to 'Newest', send(path, params.merge(:filter => 'newest')), :class => ('selected' if params[:filter] == 'newest')
+        - if recent ||= false
+          = link_to 'Recently Edited', send(path, params.merge(:filter => 'recent')), :class => ('selected' if params[:filter] == 'recent')
+        - if flagged ||= false
+          = link_to 'Flagged', send(path, params.merge(:filter => 'flagged')), :class => ('selected' if params[:filter] == 'flagged')
+    .filter_search
+      - if params[:search]
+        %span.current_search= params[:search].truncate(10)
+        %span.current_search_remove 
+          = link_to 'X', send(path, params.merge(:search => nil))
+      = form_tag send(path), :method => 'get' do
+        - params.each do |key, value|
+          = hidden_field_tag key, value
+        = text_field_tag :search, nil, :placeholder => "Search #{namespace_controller.downcase.pluralize}..."
+        = submit_tag 'Search'
+%hr
+    

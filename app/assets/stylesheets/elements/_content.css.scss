@@ -1,0 +1,12 @@
+div.content {
+  float: left;
+  width: 704px;
+  min-height: 480px;
+  margin-left: -1px;
+  padding-left: 35px;
+  border-left: 1px solid $divider-color;
+  
+  div.content_div {
+    margin-bottom: 40px;
+  }
+}

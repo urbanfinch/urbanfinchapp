@@ -1,0 +1,25 @@
+%section{:id => 'reset'}
+  .section_container
+    - if @user.errors.any?
+      .errors
+        %h2 The following errors need to be corrected
+        %ul
+          - for message in @user.errors.full_messages
+            %li= message
+    = form_tag reset_path(:reset_token => params[:reset_token]) do
+      .form_left
+        %h2= current_account.title
+      .form_right
+        %div
+          = label_tag 'password', 'Password'
+          = password_field_tag 'password', nil, :required => true
+          %span{:class => 'help'} Enter new password for this account
+        %div
+          = label_tag 'password_confirmation', 'Password Confirmation'
+          = password_field_tag 'password_confirmation', nil, :required => true
+          %span{:class => 'help'} Confirm new password for this account
+        %div
+          = submit_tag 'Reset Password'
+      .clearfix
+  %p
+    = link_to 'Go to sign in page', login_path

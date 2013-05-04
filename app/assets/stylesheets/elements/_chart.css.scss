@@ -1,0 +1,60 @@
+div.chart {
+  width: 983px;
+  height: 340px;
+  margin-bottom: 20px;
+  border: 1px solid $secondary-color;
+  
+  canvas {
+    width: 965px;
+    height: 295px;
+    margin: 8px;
+  }
+  
+  nav {
+    width: 945px;
+    height: 14px;
+    margin: 0px 20px;
+    
+    div.nav_left {
+      float: left;
+      width: 50%;
+      height: 14px;
+      text-align: center;
+      
+      a {
+        float: left;
+        margin-right: 5px;
+      }
+    }
+    
+    div.nav_right {
+      float: left;
+      width: 50%;
+      height: 14px;
+      text-align: center;
+      
+      a {
+        float: right;
+        margin-left: 5px;
+      }
+    }
+    
+    a {
+      display: block;
+      height: 10px;
+      margin: 0px;
+      padding: 2px 6px;
+      line-height: 10px;
+      font-size: 10px;
+      text-align: center;
+      text-decoration: none;
+      background-color: $secondary-color;
+      border-radius: 6px;
+      color: $background-color;
+    }
+
+    a:hover, a.selected {
+      background-color: $primary-color;
+    }
+  }
+}

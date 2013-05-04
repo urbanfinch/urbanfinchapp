@@ -1,0 +1,17 @@
+= render :partial => 'shared/error', :locals => {:object => message}
+= form_for message, :url => url do |f|
+  %div{:id => 'message', :class => 'content_div'}
+    %h2 Message
+    %hr
+    %div.hidden
+      = f.hidden_field :account_id
+      = f.hidden_field :user_id
+    %div
+      = f.label :title
+      = f.text_field :title
+    %div
+      = f.label :category
+      = f.select :category, options_for_select([['Dashboard', 'dashboard'], ['Customer', 'customer'], ['Inventory', 'inventory']], f.object.category)
+    %div
+      = f.label :body, 'Body'
+      = f.text_area :body, :rows => 10

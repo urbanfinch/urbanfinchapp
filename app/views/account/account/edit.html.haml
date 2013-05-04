@@ -1,0 +1,17 @@
+%section{:id => 'account_account_edit'}
+  .sidebar
+    .sidebar_header
+      = image_tag('/assets/icons/setting_60.png', :alt => @account.title)
+      %h2= @account.title
+    .sidebar_nav
+      %nav.content_nav
+        %div{:class => 'selected'}
+          %a{:href => '#account'} Account
+        %div
+          %a{:href => '#billing'} Billing
+        %div
+          %a{:href => '#api'} API Key
+    .sidebar_buttons
+      = submit_tag 'Save', :form => "edit_account_#{@account.id}"
+  .content
+    = render :partial => 'form', :locals => {:account => @account, :url => account_account_path}

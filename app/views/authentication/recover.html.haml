@@ -1,0 +1,15 @@
+%section{:id => 'recover'}
+  .section_container
+    = form_tag recover_path do
+      .form_left
+        %h2= current_account.title
+      .form_right
+        %div
+          = label_tag 'email', 'Email'
+          = email_field_tag 'email', nil, :required => true, :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}'
+          %span{:class => 'help'} Enter the email address associated with your account to recover your password
+        %div
+          = submit_tag 'Submit'
+      .clearfix
+  %p
+    = link_to 'Go back to sign in', login_path

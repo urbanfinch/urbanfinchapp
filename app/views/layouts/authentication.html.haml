@@ -1,0 +1,21 @@
+!!!
+%html
+  %head
+    %title Urban Finch
+    = stylesheet_link_tag    "authentication", :media => "all"
+    = javascript_include_tag "authentication"
+    = csrf_meta_tags
+  %body
+    .container
+      = image_tag 'logo_small.png', :id => 'logo'
+      .flash
+        - if flash[:notice]
+          %p.notice= flash[:notice]
+        - if flash[:error]
+          %p.error= flash[:error]
+      = yield
+      .footer
+        %p
+          %a{:href => 'http://www.urbanfinch.com', :title => 'Urban Finch'} Urban Finch
+          = "| Copyright ©#{DateTime.now.year} Urban Finch | "
+          %a{:href => 'mailto:thefinch@urbanfinch.com'} Contact Us

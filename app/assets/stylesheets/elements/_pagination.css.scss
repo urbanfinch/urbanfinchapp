@@ -1,0 +1,59 @@
+div.pagination {
+  margin-bottom: 10px;
+  
+  div.pagination_container {
+    @include clearfix;
+    height: 24px;
+    
+    a {
+      @include button(simple, $secondary-color);
+      margin-left: 5px;
+      padding: 4px 10px;
+      font-size: 10px;
+    }
+    
+    div.pagination_info {
+      display: block;
+      float: left;
+      height: 24px;
+      left: 0px;
+      margin: 0px;
+      font-size: 14px;
+      line-height: 24px;
+    }
+
+    div.pagination_menu {
+      float: left;
+      margin-left: 20px;
+      height: 24px;
+      
+      span.current {
+        @include button(simple, $primary-color);
+        margin-left: 5px;
+        padding: 4px 10px;
+        font-size: 10px;
+      }
+    }
+    
+    div.pagination_per_page {
+      float: right;
+      height: 24px;
+      text-align: right;
+      
+      span {
+        font-size: 14px;
+      }
+      
+      nav {
+        display: inline;
+      }
+      
+      a.selected {
+        @include button(simple, $primary-color);
+        margin-left: 5px;
+        padding: 4px 10px;
+        font-size: 10px;
+      }
+    }
+  }
+}

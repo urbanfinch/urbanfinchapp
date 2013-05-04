@@ -1,0 +1,36 @@
+%section{:id => 'dashboard_messages_show'}
+  .sidebar
+    .sidebar_header
+      = image_tag('/assets/icons/message_60.png', :size => "60x60", :alt => "Photo")
+      %h2= @message.title
+    .sidebar_buttons
+      - if @message.user_id == current_user.id
+        = link_to 'Edit', edit_dashboard_message_path(@message)
+      = link_to 'View all messages', dashboard_messages_path
+  .content
+    %div{:id => 'message'}
+      %h2= @message.title
+      %hr
+      %p.info
+        Created by
+        %em= @message.user.username
+        on 
+        = @message.created_at.in_time_zone.strftime("%B #{@message.created_at.day.ordinalize} at %l:%M %p")
+      %hr
+      %p.body= simple_format @message.body
+      %hr
+    %br
+    %div{:id => 'comments'}
+      %h3 Comments
+      - @message.comments.each do |comment|
+        .comment
+          %hr
+          %p.info
+            = comment.date.in_time_zone.strftime("%B #{comment.date.day.ordinalize} at %l:%M %p, ")
+            %em= comment.user.username
+            said: 
+          %hr
+          %p.body= simple_format comment.body
+      %hr
+      %br
+    = render :partial => 'comment_form', :locals => {:message => @message, :url => comment_dashboard_message_path}

@@ -1,0 +1,53 @@
+!!!
+%html
+  %head
+    %title Urban Finch
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body{:'data-controller' => params[:controller], :'data-action' => params[:action]}
+    %header
+      .top
+        .container
+          %h1
+            = link_to current_account.title, root_path
+          %nav{:id => 'main'}
+            = link_to dashboard_root_path, :class => class_for_link_to_namespace('dashboard') do
+              Dashboard
+              %span{:class => 'indicator'}
+            = link_to account_root_path, :class => class_for_link_to_namespace('account') do
+              Account
+              %span{:class => 'indicator'}
+          %ul{:id => 'account'}
+            %li{:class => 'button_container'}
+              .avatar
+                = image_tag(current_user.avatar.url(:tiny), :size => "60x60", :alt => "Avatar")
+              .triangle
+            %li{:class => 'link_container'}
+              %ul
+                %li
+                  = link_to 'My Profile', edit_account_user_path(current_user)
+                %li
+                  = link_to 'Logout', logout_path
+      .bottom
+        .container
+          %nav{:id => 'sub'}
+            - if current_namespace?('dashboard')
+              = link_to 'Overview', dashboard_overview_path, :class => class_for_link_to_namespace_controller('overview')
+              = link_to 'Messages', dashboard_messages_path, :class => class_for_link_to_namespace_controller('messages')
+              = link_to 'Activity', dashboard_activities_path, :class => class_for_link_to_namespace_controller('activities')
+            - if current_namespace?('account')
+              = link_to 'Account', account_root_path, :class => class_for_link_to_namespace_controller('account')
+              = link_to 'Users', account_users_path, :class => class_for_link_to_namespace_controller('users')
+    .container
+      .flash
+        - if flash[:notice]
+          %p.notice= flash[:notice]
+        - if flash[:alert]
+          %p.alert= flash[:alert]
+      = yield
+    %footer
+      %p
+        %a{:href => 'http://www.urbanfinch.com', :title => 'Urban Finch'} Urban Finch
+        = "| Copyright ©#{DateTime.now.year} Urban Finch | "
+        %a{:href => 'mailto:thefinch@urbanfinch.com'} Contact Us

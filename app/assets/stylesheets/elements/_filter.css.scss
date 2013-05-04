@@ -1,0 +1,96 @@
+div.filter {
+  margin-bottom: 10px;
+  
+  div.filter_container {
+    @include clearfix;
+    height: 24px;
+    
+    div.filter_nav {
+      float: left;
+      
+      span {
+        font-size: 14px;
+      }
+      
+      nav {
+        display: inline;
+        
+        a {
+          @include button(simple, $secondary-color);
+          margin-left: 5px;
+          padding: 4px 10px;
+          font-size: 10px;
+        }
+
+        a.selected {
+          @include button(simple, $primary-color);
+          margin-left: 5px;
+          padding: 4px 10px;
+          font-size: 10px;
+        }
+      }
+    }
+    
+    div.filter_search {
+      float: right;
+      
+      span {
+        @include button(simple, $primary-color);
+        float: left;
+        display: block;
+        padding: 4px 10px;
+        font-size: 10px;
+        margin-top: 1px;
+      }
+      
+      span.current_search {
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+      }
+      
+      span.current_search_remove {
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-left: 0px;
+        margin-right: 5px;
+        padding: 0px;
+        width: 22px;
+        height: 20px;
+        
+        &:active {
+          border-left: 0px;
+        }
+        
+        a {
+          display: block;
+          text-decoration: none;
+          text-align: center;
+          line-height: 20px;
+          color: $background-color;
+        }
+      }
+      
+      form {
+        float: left;
+        
+        input[type=text] {
+          display: inline;
+          margin-top: 1px;
+          width: 200px;
+          max-width: none;
+          padding: 4px 4px 3px;
+          font-size: 11px;
+        }
+        
+        input[type=submit] {
+          display: inline;
+          @include button(simple, $secondary-color);
+          margin-left: 5px;
+          margin-right: 0px;
+          padding: 4px 10px;
+          font-size: 10px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,4 @@
+- unless activity.trackable.nil?
+  .activity
+    .activity_container
+      = render :partial => "dashboard/activities/#{activity.trackable_type.underscore}/#{activity.action}", :locals => {:activity => activity}

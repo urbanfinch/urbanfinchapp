@@ -1,0 +1,70 @@
+div.message {
+  border-bottom: 1px solid $secondary-color;
+  padding: 10px 0px;
+  margin: 0px;
+  
+  div.message_header {
+    @include clearfix;
+    height: 15px;
+    
+    h6 {
+      float: left;
+      width: 80%;
+      margin: 0px;
+      font-size: 13px;
+      line-height: 15px;
+      
+      a {
+        text-decoration: none;
+      }
+    }
+    
+    span {
+      display: block;
+      float: right;
+      width: 20%;
+      height: 15px;
+      text-align: right;
+      
+      a {
+        @include button(simple, $secondary-color);
+        margin-left: 5px;
+        font-size: 9px;
+        padding: 1px 4px;
+        vertical-align: top;
+      }
+    }
+  }
+  
+  div.message_body {
+    p {
+      font-size: 12px;
+      margin: 5px 0px;
+    }
+  }
+  
+  div.message_footer {
+    @include clearfix;
+    
+    p {
+      float: left;
+      margin: 0px;
+      font-size: 10px;
+      color: $primary-color;
+      
+      em {
+        color: $text-color;
+      }
+    }
+    
+    p:first-child {
+      width: 80%;
+      text-align: left;
+    }
+    
+    p:last-child {
+      width: 20%;
+      text-align: right;
+    }
+  }
+}

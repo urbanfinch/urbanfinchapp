@@ -1,0 +1,32 @@
+div.info {
+  @include clearfix;
+  width: 985px;
+  
+  h3 {
+    margin-bottom: 10px;
+    padding-left: 28px;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: 0px 4px;
+  }
+  
+  hr {
+    margin-bottom: 0px;
+  }
+  
+  div.info_left {
+    float: left;
+    width: 311px;
+  }
+  
+  div.info_middle {
+    float: left;
+    width: 323px;
+    margin: 0px 20px;
+  }
+  
+  div.info_right {
+    float: left;
+    width: 311px;
+  }
+}

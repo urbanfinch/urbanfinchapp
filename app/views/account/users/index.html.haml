@@ -1,0 +1,40 @@
+%section{:id => 'account_users_index'}
+  .heading
+    %h2 Users
+    %nav
+      = link_to 'Create new user', new_account_user_path
+  %hr
+  = render :partial => 'shared/filter', :locals => {:objects => @users, :search => @search, :path => :account_users_path, :recent => true}
+  - unless @users.empty?
+    %table
+      %thead
+        %tr
+          %th
+          %th Username
+          %th Email
+          %th First Name
+          %th Last Name
+          %th Administrator
+          %th View
+          %th Edit
+          %th Delete
+      %tbody
+        - @users.each do |user|
+          %tr
+            %td
+              = image_tag(user.avatar.url(:small), :size => "60x60", :alt => "Avatar")
+            %td= user.username
+            %td
+              = mail_to user.email
+            %td= user.first_name
+            %td= user.last_name
+            %td= user.administrator? ? 'Yes' : 'No'
+            %td
+              = link_to 'View', account_user_path(user)
+            %td
+              = link_to 'Edit', edit_account_user_path(user)
+            %td
+              = link_to 'Delete', account_user_path(user), :confirm => 'Are you sure?', :method => :delete
+  - else
+    %p.center No users found
+  = render :partial => 'shared/pagination', :locals => {:objects => @users, :search => @search, :path => :account_users_path}

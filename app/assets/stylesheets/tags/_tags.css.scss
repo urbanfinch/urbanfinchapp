@@ -1,0 +1,93 @@
+a {
+  color: $link-color;
+}
+
+a:hover, a.selected {
+  color: $link-hover-color;
+}
+
+a.button {
+  @include button(simple, $secondary-color);
+}
+
+h2 {
+  margin-top: 0px;
+}
+
+h3 {
+  margin-top: 0px;
+}
+
+h5 {
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: $divider-color;
+  margin: 10px 0px;
+}
+
+dl {
+  @include clearfix;
+  margin: 20px 0px;
+  
+  dt {
+    float: left;
+    width: 30%;
+    font-weight: bold;
+  }
+  
+  dd {
+    width: 70%;
+    margin: 0px;
+    float: right;
+    
+    p:first-child {
+      margin-top: 0px;
+    }
+  }
+}
+
+table {
+  width: 100%;
+  margin-bottom: 10px;
+  
+  thead {
+    background-color: $secondary-color;
+    
+    tr {
+      th {
+        padding: 10px 0px;
+        font-size: 14px;
+      }
+    }
+  }
+  
+  tbody {
+    tr {
+      border-top: 1px solid $divider-color;
+      
+      td {
+        text-align: center;
+        font-size: 13px;
+        
+        a{
+          @include button(simple, $secondary-color);
+          font-size: 11px;
+          padding: 4px 8px;
+        }
+        
+        img {
+          margin-top: 2px;
+        }
+      }
+    }
+    
+    tr:last-child {
+      border-bottom: 1px solid $divider-color;
+    }
+  }
+}

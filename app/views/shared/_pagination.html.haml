@@ -1,0 +1,13 @@
+- unless objects.empty?
+  .pagination
+    .pagination_container
+      .pagination_info
+        %span= "Showing #{pagination_info(objects, search)}"
+      .pagination_menu
+        = paginate objects
+      .pagination_per_page
+        %span Per Page:
+        %nav
+          = link_to '10', send(path, params.merge(:page => objects.current_page, :per_page => 10)), :class => "#{'selected' if objects.per_page == 10}"
+          = link_to '25', send(path, params.merge(:page => objects.current_page, :per_page => 25)), :class => "#{'selected' if objects.per_page == 25}"
+          = link_to '50', send(path, params.merge(:page => objects.current_page, :per_page => 50)), :class => "#{'selected' if objects.per_page == 50}"

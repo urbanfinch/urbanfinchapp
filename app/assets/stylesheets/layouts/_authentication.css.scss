@@ -1,0 +1,118 @@
+section {
+  min-height: 0px;
+  margin-bottom: 0px;
+  
+  > p {
+    font-size: 12px;
+    text-align: center;
+  }
+  
+  div.section_container {
+    width: 470px;
+    margin: 0px auto;
+    padding: 15px;
+    background-color: $primary-color;
+    border-radius: 4px;
+    
+    div.errors {
+      width: 450px;
+      background-color: red;
+      padding: 10px;
+      margin-bottom: 15px;
+      background-color: $secondary-color;
+      border-radius: 4px;
+      
+      h2 {
+        margin: 0px;
+        font-size: 16px;
+      }
+      
+      ul {
+        font-size: 14px;
+      }
+    }
+    
+    form {
+      div {
+        label {
+          display: block;
+          float: none;
+          width: 245px;
+          height: 20px;
+          line-height: 20px;
+          margin-bottom: 5px;
+          font-size: 14px;
+          @include text-shadow(inset, $text-color);
+        }
+
+        input[type=text], input[type=email], input[type=password] {
+          float: none;
+          width: 245px;
+          max-width: 245px;
+          padding: 4px;
+          border: none;
+          border-radius: 2px;
+        }
+        
+        span.remember {
+          font-size: 12px;
+          @include text-shadow(inset, $text-color);
+        }
+        
+        span.help {
+          @include text-shadow(inset, $text-color);
+        }
+      }
+      
+      div.form_left {
+        float: left;
+        width: 185px;
+        height: 185px;
+        margin-bottom: 0px;
+        
+        h2 {
+          float: left;
+          width: 185px;
+          height: 185px;
+          margin: 0px;
+          font-size: 15px;
+          line-height: 185px;
+          text-align: center;
+          @include text-shadow(inset, $text-color);
+        }
+        
+        input[type=text] {
+          width: 177px;
+        }
+      }
+      
+      div.form_right {
+        float: left;
+        width: 249px;
+        height: 185px;
+        margin-left: 15px;
+        margin-bottom: 0px;
+        padding-left: 15px;
+        border-left: 1px $text-color solid;
+      }
+    }
+  }
+}
+
+div.container {
+  width: 500px;
+  
+  img#logo {
+    display: block;
+    width: 251px;
+    height: 158px;
+    margin: 40px auto;
+  }
+  
+  div.footer {
+    p {
+      font-size: 12px;
+      text-align: center;
+    }
+  }
+}

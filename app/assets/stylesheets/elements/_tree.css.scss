@@ -1,0 +1,56 @@
+div.tree {
+  max-width: 100%;
+  
+  ul {
+    display: none;
+    padding-left: 10px;
+    padding-top: 6px;
+    
+    li {
+      list-style-position: inside;
+      font-weight: normal;
+      font-size: 14px;
+      
+      span {
+        height: 24px;
+        line-height: 24px;
+        cursor: pointer;
+      }
+      
+      nav {
+        float: right;
+        
+        a {
+          @include button(simple, $secondary-color);
+          margin-left: 5px;
+          padding: 4px 10px;
+          font-size: 10px;
+        }
+      }
+    }
+    
+    li.opened {
+      list-style-image: url('/assets/icons/down.png');
+    }
+    
+    li.closed {
+      list-style-image: url('/assets/icons/right.png');
+    }
+  }
+  
+  > ul {
+    display: block;
+    margin-left: 0px;
+    padding: 0px;
+    
+    > li {
+      padding: 6px 0px 5px;
+      border-top: 1px solid $secondary-color;
+      font-weight: bold;
+    }
+    
+    > li:last-child {
+      border-bottom: 1px solid $secondary-color;
+    }
+  }
+}

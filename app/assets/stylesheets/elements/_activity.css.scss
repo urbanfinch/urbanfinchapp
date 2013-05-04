@@ -1,0 +1,27 @@
+div.activity {
+  border-bottom: 1px solid $secondary-color;
+  padding: 10px 0px;
+  margin: 0px;
+  
+  div.activity_container {
+    @include clearfix;
+    
+    span {
+      display: block;
+      float: left;
+      line-height: 16px;
+    }
+    
+    span.info {
+      width: 70%;
+      font-size: 11px;
+    }
+    
+    span.date {
+      width: 30%;
+      font-size: 9px;
+      text-align: right;
+      color: $primary-color;
+    }
+  }
+}

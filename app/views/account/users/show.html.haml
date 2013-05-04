@@ -1,0 +1,49 @@
+%section{:id => 'account_users_show'}
+  .sidebar
+    .sidebar_header
+      = image_tag(@user.avatar.url(:small), :size => "60x60", :alt => "Avatar")
+      %h2= "#{@user.first_name} #{@user.last_name}"
+    .sidebar_nav
+      %nav.content_nav
+        %div{:class => 'selected'}
+          %a{:href => '#user'} User
+        %div
+          %a{:href => '#activity'} Activity
+    .sidebar_buttons
+      = link_to 'Edit', edit_account_user_path(@user)
+      = link_to 'Back to users', account_users_path
+  .content
+    %div{:id => 'user', :class => 'content_div'}
+      %h2 User
+      %hr
+      %div
+        %dl
+          %dt First Name
+          %dd= @user.first_name
+      %div
+        %dl
+          %dt Last Name
+          %dd= @user.last_name
+      %div
+        %dl
+          %dt Username
+          %dd= @user.username
+      %div
+        %dl
+          %dt Email
+          %dd= @user.email
+      %div
+        %dl
+          %dt Administrator
+          %dd= @user.administrator? ? 'Yes' : 'No'
+      %div
+        %dl
+          %dt Avatar
+          %dd
+            = image_tag(@user.avatar.url(:small), :size => "60x60", :alt => "Avatar")
+      %hr
+    %div{:id => 'activity', :class => 'content_div'}
+      %h2 Activity
+      %hr
+      - @activities.each do |activity|
+        = render :partial => 'shared/activity', :locals => {:activity => activity}

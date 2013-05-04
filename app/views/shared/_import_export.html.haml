@@ -1,0 +1,17 @@
+.import_export
+  .import_export_container
+    .import
+      %span Import:
+      = form_tag send(path), :method => :get, :multipart => true do
+        %fieldset
+          = file_field_tag 'import'
+          = submit_tag 'Import'
+    .export
+      %a{:href => send(path, :format => :xls)}
+        %span XLS
+        = image_tag(icon_for('xls', :size => 'small'), :size => "34x34", :alt => "XLS")
+      %a{:href => send(path, :format => :csv)}
+        %span CSV
+        = image_tag(icon_for('csv', :size => 'small'), :size => "34x34", :alt => "CSV")
+      %span Export:
+  %hr

@@ -1,0 +1,12 @@
+%section{:id => 'dashboard_activities_index'}
+  .heading
+    %h2 Latest Activity
+  %hr
+  = render :partial => 'shared/filter', :locals => {:objects => @activities, :search => @search, :path => :dashboard_activities_path}
+  - unless @activities.empty?
+    - @activities.each do |activity|
+      = render :partial => 'shared/activity', :locals => {:activity => activity}
+  - else
+    %p.center No activities found
+  %br
+  = render :partial => 'shared/pagination', :locals => {:objects => @activities, :search => @search, :path => :dashboard_activities_path}

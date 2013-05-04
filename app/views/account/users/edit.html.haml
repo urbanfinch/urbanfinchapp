@@ -1,0 +1,16 @@
+%section{:id => 'account_users_edit'}
+  .sidebar
+    .sidebar_header
+      = image_tag(@user.avatar.url(:small), :size => "60x60", :alt => "Avatar")
+      %h2= "#{@user.first_name} #{@user.last_name}"
+    .sidebar_nav
+      %nav.content_nav
+        %div{:class => 'selected'}
+          %a{:href => '#user'} User
+        %div
+          %a{:href => '#password'} Password
+    .sidebar_buttons
+      = submit_tag 'Save', :form => "edit_user_#{@user.id}"
+      = link_to 'Back to users', account_users_path
+  .content
+    = render :partial => 'form', :locals => {:user => @user, :url => account_user_path}

@@ -1,0 +1,76 @@
+form {
+  div {
+    @include clearfix;
+    margin-bottom: 10px;
+  }
+  
+  div.hidden {
+    display: none;
+  }
+  
+  div:last-child {
+    margin-bottom: 0px;
+  }
+  
+  div.field_with_errors {
+    display: inline;
+    
+    label {
+      background-color: $error-color;
+    }
+  }
+  
+  fieldset {
+    padding: 15px;
+    margin-bottom: 10px;
+    
+    legend {
+      padding: 0px 10px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+  }
+  
+  label {
+    display: block;
+    float: left;
+    width: 30%;
+    height: 29px;
+    line-height: 29px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  textarea, input[type=text], input[type=tel], input[type=number], input[type=email], input[type=password] {
+    display: block;
+    float: left;
+    width: 68%;
+    max-width: 68%;
+    padding: 4px;
+    border: 1px solid $text-color;
+    border-radius: 2px;
+    outline-color: $text-color;
+  }
+  
+  input[type=checkbox] {
+    margin-top: 7px;
+  }
+
+  input[type=submit] {
+    @include button(simple, $secondary-color);
+  }
+
+  div.help {
+    p {
+      margin: 0px;
+      padding: 0px;
+      padding-left: 30%;
+      font-size: 10px;
+    }
+  }
+}
+
+input[type=submit] {
+  @include button(simple, $secondary-color);
+  margin-right: 5px;
+}

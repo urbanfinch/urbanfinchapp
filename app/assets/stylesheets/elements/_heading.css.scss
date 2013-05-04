@@ -1,0 +1,17 @@
+div.heading {
+  @include clearfix;
+  
+  h2 {
+    float: left;
+    margin-bottom: 10px;
+  }
+  
+  nav {
+    float: right;
+    
+    a {
+      margin-left: 10px;
+      @include button(simple, $secondary-color);
+    }
+  }
+}
