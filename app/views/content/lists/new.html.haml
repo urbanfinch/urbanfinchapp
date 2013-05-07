@@ -1,0 +1,18 @@
+%section{:id => 'content_lists_new'}
+  .sidebar
+    .sidebar_header
+      %h2 New List
+    .sidebar_nav
+      %nav.content_nav
+        %div{:class => 'selected'}
+          %a{:href => '#list'} List
+        %div
+          %a{:href => '#bullets'} Bullets
+        - if current_user.administrator?
+          %div
+            %a{:href => '#administrator'} Administrator
+    .sidebar_buttons
+      = submit_tag 'Save', :form => 'new_list'
+      = link_to 'Back to lists', content_lists_path
+  .content
+    = render :partial => 'form', :locals => {:list => @list, :url => content_lists_path}

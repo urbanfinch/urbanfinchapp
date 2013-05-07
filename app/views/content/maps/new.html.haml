@@ -1,0 +1,16 @@
+%section{:id => 'content_maps_new'}
+  .sidebar
+    .sidebar_header
+      %h2 New Map
+    .sidebar_nav
+      %nav.content_nav
+        %div{:class => 'selected'}
+          %a{:href => '#map'} Map
+        - if current_user.administrator?
+          %div
+            %a{:href => '#administrator'} Administrator
+    .sidebar_buttons
+      = submit_tag 'Save', :form => 'new_map'
+      = link_to 'Back to maps', content_maps_path
+  .content
+    = render :partial => 'form', :locals => {:map => @map, :url => content_maps_path}

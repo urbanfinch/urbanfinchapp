@@ -20,9 +20,9 @@ class User
   attr_accessor :password
   
   has_mongoid_attached_file :avatar,
-    :default_url => 'users/:attachment/missing_:style.png',
+    :default_url => '/assets/missing/users/:attachment/missing_:style.png',
     :styles => {
-      :small        => ['60x60#',   :png],
+      :small        => ['48x48#',   :png],
       :tiny         => ['18x18#',   :png]
     }
   

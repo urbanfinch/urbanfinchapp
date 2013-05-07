@@ -1,0 +1,33 @@
+%section{:id => 'content_posts_index'}
+  .heading
+    %h2 Posts
+    %nav
+      = link_to 'Create new post', new_content_post_path
+  %hr
+  /= render :partial => 'shared/filter', :locals => {:objects => @posts, :search => @search, :path => :content_posts_path, :recent => true}
+  - unless @posts.empty?
+    %table
+      %thead
+        %tr
+          %th
+          %th Title
+          %th Published
+          %th View
+          %th Edit
+          %th Delete
+      %tbody
+        - @posts.each do |post|
+          %tr
+            %td
+              = image_tag(post.image.url, :size => "60x60", :alt => "Image")
+            %td= post.title
+            %td= post.published? ? 'Yes' : 'No'
+            %td
+              = link_to 'View', content_post_path(post)
+            %td
+              = link_to 'Edit', edit_content_post_path(post)
+            %td
+              = link_to 'Delete', content_post_path(post), :confirm => 'Are you sure?', :method => :delete
+  - else
+    %p.center No posts found
+  /= render :partial => 'shared/pagination', :locals => {:objects => @posts, :search => @search, :path => :content_posts_path}

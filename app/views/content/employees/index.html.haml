@@ -1,0 +1,33 @@
+%section{:id => 'content_employees_index'}
+  .heading
+    %h2 Employees
+    %nav
+      = link_to 'Create new employee', new_content_employee_path
+  %hr
+  /= render :partial => 'shared/filter', :locals => {:objects => @employees, :search => @search, :path => :content_employees_path, :recent => true}
+  - unless @employees.empty?
+    %table
+      %thead
+        %tr
+          %th
+          %th Name
+          %th Title
+          %th View
+          %th Edit
+          %th Delete
+      %tbody
+        - @employees.each do |employee|
+          %tr
+            %td
+              = image_tag(employee.image.url, :size => "60x60", :alt => "Image")
+            %td= employee.name
+            %td= employee.title
+            %td
+              = link_to 'View', content_employee_path(employee)
+            %td
+              = link_to 'Edit', edit_content_employee_path(employee)
+            %td
+              = link_to 'Delete', content_employee_path(employee), :confirm => 'Are you sure?', :method => :delete
+  - else
+    %p.center No employees found
+  /= render :partial => 'shared/pagination', :locals => {:objects => @employees, :search => @search, :path => :content_employees_path}

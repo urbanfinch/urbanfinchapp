@@ -1,0 +1,45 @@
+= render :partial => 'shared/error', :locals => {:object => employee}
+= form_for employee, :url => url do |f|
+  %div{:id => 'employee', :class => 'content_div'}
+    %h2 Employee
+    %hr
+    %div.hidden
+      = f.hidden_field :account_id
+    %div
+      = f.label :name, 'Name'
+      = f.text_field :name
+    %div
+      = f.label :title, 'Title'
+      = f.text_field :title
+    %div
+      = f.label :subtitle, 'Subtitle'
+      = f.text_field :subtitle
+    %div
+      = f.label :email, 'Email'
+      = f.email_field :email
+    %div
+      = f.label :image, 'Image'
+      = f.file_field :image
+    %div
+      %label
+      = f.text_field :image_url, :placeholder => 'http://example.com/path/to/image.png'
+    %div.help
+      %p Image will be automatically resized
+  %div{:id => 'phones', :class => 'content_div'}
+    .heading
+      %h2 Phones
+      %nav
+        = link_to_add_fields 'Add phone', f, :phones
+    %hr
+    .fields
+      = f.fields_for :phones do |p|
+        = render 'phone_fields', :f => p
+  %div{:id => 'urls', :class => 'content_div'}
+    .heading
+      %h2 URLs
+      %nav
+        = link_to_add_fields 'Add URL', f, :urls
+    %hr
+    .fields
+      = f.fields_for :urls do |u|
+        = render 'url_fields', :f => u

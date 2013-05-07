@@ -1,0 +1,52 @@
+%section{:id => 'content_albums_show'}
+  .sidebar
+    .sidebar_header
+      = image_tag(@album.image.url, :size => "60x60", :alt => "Image")
+      %h2 View Album
+    .sidebar_nav
+      %nav.content_nav
+        %div{:class => 'selected'}
+          %a{:href => '#album'} Album
+        %div
+          %a{:href => '#images'} Images
+    .sidebar_buttons
+      = link_to 'Edit', edit_content_album_path(@album)
+      = link_to 'Back to albums', content_albums_path
+  .content
+    %div{:id => 'album', :class => 'content_div'}
+      %h2 Album
+      %hr
+      %div
+        %dl
+          %dt Identifier
+          %dd= @album.identifier
+      %div
+        %dl
+          %dt Name
+          %dd= @album.name
+      %div
+        %dl
+          %dt Description
+          %dd= @album.description
+      %div
+        %dl
+          %dt Image
+          %dd
+            = image_tag(@album.image.url, :alt => "Image")
+    %div{:id => 'images', :class => 'content_div'}
+      %h2 Images
+      %hr
+      - @album.images.each do |image|
+        %div
+          %dl
+            %dt Name
+            %dd= image.name
+        %div
+          %dl
+            %dt Description
+            %dd= image.description
+        %div
+          %dl
+            %dt Image
+            %dd
+              = image_tag image.image.url

@@ -1,0 +1,17 @@
+%section{:id => 'content_blurbs_new'}
+  .sidebar
+    .sidebar_header
+      = image_tag(@blurb.image.url, :size => "60x60", :alt => "Image")
+      %h2 New Blurb
+    .sidebar_nav
+      %nav.content_nav
+        %div{:class => 'selected'}
+          %a{:href => '#blurb'} Blurb
+        - if current_user.administrator?
+          %div
+            %a{:href => '#administrator'} Administrator
+    .sidebar_buttons
+      = submit_tag 'Save', :form => 'new_blurb'
+      = link_to 'Back to blurbs', content_blurbs_path
+  .content
+    = render :partial => 'form', :locals => {:blurb => @blurb, :url => content_blurbs_path}

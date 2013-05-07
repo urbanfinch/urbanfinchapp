@@ -1,0 +1,41 @@
+%section{:id => 'content_lists_show'}
+  .sidebar
+    .sidebar_header
+      %h2 View List
+    .sidebar_nav
+      %nav.content_nav
+        %div{:class => 'selected'}
+          %a{:href => '#list'} List
+        %div
+          %a{:href => '#bullets'} Bullets
+    .sidebar_buttons
+      = link_to 'Edit', edit_content_list_path(@list)
+      = link_to 'Back to lists', content_lists_path
+  .content
+    %div{:id => 'list', :class => 'content_div'}
+      %h2 List
+      %hr
+      %div
+        %dl
+          %dt Identifier
+          %dd= @list.identifier
+      %div
+        %dl
+          %dt Title
+          %dd= @list.title
+    %div{:id => 'bullets', :class => 'content_div'}
+      %h2 Bullets
+      %hr
+      - @list.bullets.each do |bullet|
+        %div
+          %dl
+            %dt Title
+            %dd= bullet.title
+        %div
+          %dl
+            %dt Index
+            %dd= bullet.index
+        %div
+          %dl
+            %dt Content
+            %dd= bullet.content

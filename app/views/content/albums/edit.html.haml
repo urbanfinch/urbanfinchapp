@@ -1,0 +1,19 @@
+%section{:id => 'content_albums_edit'}
+  .sidebar
+    .sidebar_header
+      = image_tag(@album.image.url, :size => "60x60", :alt => "Image")
+      %h2 Edit Album
+    .sidebar_nav
+      %nav.content_nav
+        %div{:class => 'selected'}
+          %a{:href => '#album'} Album
+        %div
+          %a{:href => '#images'} Images
+        - if current_user.administrator?
+          %div
+            %a{:href => '#administrator'} Administrator
+    .sidebar_buttons
+      = submit_tag 'Save', :form => "edit_album_#{@album.id}"
+      = link_to 'Back to albums', content_albums_path
+  .content
+    = render :partial => 'form', :locals => {:album => @album, :url => content_album_path}

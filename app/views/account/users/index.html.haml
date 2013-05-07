@@ -4,7 +4,7 @@
     %nav
       = link_to 'Create new user', new_account_user_path
   %hr
-  = render :partial => 'shared/filter', :locals => {:objects => @users, :search => @search, :path => :account_users_path, :recent => true}
+  /= render :partial => 'shared/filter', :locals => {:objects => @users, :search => @search, :path => :account_users_path, :recent => true}
   - unless @users.empty?
     %table
       %thead
@@ -22,7 +22,7 @@
         - @users.each do |user|
           %tr
             %td
-              = image_tag(user.avatar.url(:small), :size => "60x60", :alt => "Avatar")
+              = image_tag user.avatar.url(:small), :size => '48x48', :alt => 'Avatar'
             %td= user.username
             %td
               = mail_to user.email
@@ -37,4 +37,4 @@
               = link_to 'Delete', account_user_path(user), :confirm => 'Are you sure?', :method => :delete
   - else
     %p.center No users found
-  = render :partial => 'shared/pagination', :locals => {:objects => @users, :search => @search, :path => :account_users_path}
+  /= render :partial => 'shared/pagination', :locals => {:objects => @users, :search => @search, :path => :account_users_path}

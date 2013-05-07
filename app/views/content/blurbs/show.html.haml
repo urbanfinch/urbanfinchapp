@@ -1,0 +1,37 @@
+%section{:id => 'content_blurbs_show'}
+  .sidebar
+    .sidebar_header
+      = image_tag(@blurb.image.url, :size => "60x60", :alt => "Image")
+      %h2= @blurb.title
+    .sidebar_nav
+      %nav.content_nav
+        %div{:class => 'selected'}
+          %a{:href => '#blurb'} Blurb
+    .sidebar_buttons
+      = link_to 'Edit', edit_content_blurb_path(@blurb)
+      = link_to 'Back to blurbs', content_blurbs_path
+  .content
+    %div{:id => 'blurb', :class => 'content_div'}
+      %h2 Blurb
+      %hr
+      %div
+        %dl
+          %dt Identifier
+          %dd= @blurb.identifier
+      %div
+        %dl
+          %dt Title
+          %dd= @blurb.title
+      %div
+        %dl
+          %dt Subtitle
+          %dd= @blurb.subtitle
+      %div
+        %dl
+          %dt Content
+          %dd= @blurb.content
+      %div
+        %dl
+          %dt Image
+          %dd
+            = image_tag(@blurb.image.url, :alt => "Image")

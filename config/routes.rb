@@ -9,14 +9,21 @@ Urbanfinchapp::Application.routes.draw do
     resources :users
   end
   
+  namespace :content do
+    root :to => 'albums#index'
+    resources :albums
+    resources :blurbs
+    resources :employees
+    resources :lists
+    resources :maps
+    resources :navs
+    resources :posts
+    resources :testimonials
+  end
+  
   namespace :dashboard do
     root :to => 'overview#index'
     get 'overview' => 'overview#index'
-    resources :messages do
-      member do
-        put 'comment'
-      end
-    end
     resources :activities, :only => [:index]
   end
   

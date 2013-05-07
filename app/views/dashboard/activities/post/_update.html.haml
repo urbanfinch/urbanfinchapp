@@ -1,0 +1,10 @@
+%span{:class => "info #{activity.trackable_type.underscore}"}
+  = link_to raw("<em>#{activity.user.username}</em>"), account_user_path(activity.user)
+  updated
+  = activity.trackable_type.downcase
+  - unless activity.trackable.nil?
+    = link_to activity.trackable.title, content_post_path(activity.trackable)
+  - else
+    that has since been deleted
+%span{:class => 'date'}
+  = "#{time_ago_in_words(activity.created_at)} ago"

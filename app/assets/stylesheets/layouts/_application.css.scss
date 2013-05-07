@@ -11,7 +11,7 @@ body {
 section {
   @include clearfix;
   margin: 20px 0px;
-  margin-bottom: 200px;
+  margin-bottom: 300px;
 }
 
 header {
@@ -23,7 +23,6 @@ header {
       position: absolute;
       top: 10px;
       height: 40px;
-      width: 200px;
       line-height: 40px;
       margin: 0;
       

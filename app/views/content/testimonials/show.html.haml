@@ -1,0 +1,23 @@
+%section{:id => 'content_testimonials_show'}
+  .sidebar
+    .sidebar_header
+      %h2 View Testimonial
+    .sidebar_nav
+      %nav.content_nav
+        %div{:class => 'selected'}
+          %a{:href => '#testimonial'} Testimonial
+    .sidebar_buttons
+      = link_to 'Edit', edit_content_testimonial_path(@testimonial)
+      = link_to 'Back to testimonials', content_testimonials_path
+  .content
+    %div{:id => 'testimonial', :class => 'content_div'}
+      %h2 Testimonial
+      %hr
+      %div
+        %dl
+          %dt Name
+          %dd= @testimonial.name
+      %div
+        %dl
+          %dt Quote
+          %dd= @testimonial.quote

@@ -1,0 +1,28 @@
+= render :partial => 'shared/error', :locals => {:object => nav}
+= form_for nav, :url => url do |f|
+  %div{:id => 'nav', :class => 'content_div'}
+    %h2 Nav
+    %hr
+    %div.hidden
+      = f.hidden_field :account_id
+    %div
+      = f.label :name, 'Name'
+      = f.text_field :name
+    %div
+      = f.label :description, 'Description'
+      = f.text_area :description, :rows => 3
+  %div{:id => 'links', :class => 'content_div'}
+    .heading
+      %h2 Links
+      %nav
+        = link_to_add_fields 'Add link', f, :links
+    %hr
+    .fields
+      = f.fields_for :links do |l|
+        = render 'link_fields', :f => l
+  %div{:id => 'administrator', :class => 'content_div'}
+    %h2 Administrator
+    %hr
+    %div
+      = f.label :identifier, 'Identifier'
+      = f.text_field :identifier

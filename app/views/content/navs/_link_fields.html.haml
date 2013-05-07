@@ -1,0 +1,22 @@
+%fieldset
+  %div
+    = f.label :name, 'Name'
+    = f.text_field :name
+  %div
+    = f.label :url, 'URL'
+    = f.text_field :url
+  %div
+    = f.label :description, 'Description'
+    = f.text_area :description, :rows => 3
+  %div
+    = f.label :image, 'Image'
+    = f.file_field :image
+  %div
+    %label
+    = f.text_field :image_url, :placeholder => 'http://example.com/path/to/image.png'
+  %div.help
+    %p Image will be automatically resized
+  %div
+    = f.label :_destroy, 'Remove'
+    = f.hidden_field :_destroy
+    = link_to 'Remove', '#', :class => 'remove_fields button'

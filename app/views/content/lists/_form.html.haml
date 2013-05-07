@@ -1,0 +1,25 @@
+= render :partial => 'shared/error', :locals => {:object => list}
+= form_for list, :url => url do |f|
+  %div{:id => 'list', :class => 'content_div'}
+    %h2 List
+    %hr
+    %div.hidden
+      = f.hidden_field :account_id
+    %div
+      = f.label :title, 'Title'
+      = f.text_field :title
+  %div{:id => 'bullets', :class => 'content_div'}
+    .heading
+      %h2 Bullets
+      %nav
+        = link_to_add_fields 'Add bullet', f, :bullets
+    %hr
+    .fields
+      = f.fields_for :bullets do |b|
+        = render 'bullet_fields', :f => b
+  %div{:id => 'administrator', :class => 'content_div'}
+    %h2 Administrator
+    %hr
+    %div
+      = f.label :identifier, 'Identifier'
+      = f.text_field :identifier

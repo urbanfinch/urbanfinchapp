@@ -1,0 +1,33 @@
+%section{:id => 'content_maps_show'}
+  .sidebar
+    .sidebar_header
+      %h2 View Map
+    .sidebar_nav
+      %nav.content_nav
+        %div{:class => 'selected'}
+          %a{:href => '#map'} Map
+    .sidebar_buttons
+      = link_to 'Edit', edit_content_map_path(@map)
+      = link_to 'Back to maps', content_maps_path
+  .content
+    %div{:id => 'map', :class => 'content_div'}
+      %h2 Map
+      %hr
+      %div
+        %dl
+          %dt Identifier
+          %dd= @map.identifier
+      %div
+        %dl
+          %dt Center
+          %dd= @map.center
+      %div
+        %dl
+          %dt Zoom
+          %dd= @map.zoom
+      %div
+        %dl
+          %dt Preview
+          %dd
+            %a{:href => URI::escape("http://maps.google.com/maps?q=#{@map.center}")}
+              %img{:src => URI::escape("http://maps.googleapis.com/maps/api/staticmap?center=#{@map.center}&zoom=#{@map.zoom}&size=300x300&markers=#{@map.center}&sensor=false")}

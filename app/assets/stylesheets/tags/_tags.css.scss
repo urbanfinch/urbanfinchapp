@@ -73,11 +73,16 @@ table {
       td {
         text-align: center;
         font-size: 13px;
+        height: 40px;
         
-        a{
+        a {
           @include button(simple, $secondary-color);
           font-size: 11px;
           padding: 4px 8px;
+        }
+        
+        a:hover {
+          color: $background-color;
         }
         
         img {

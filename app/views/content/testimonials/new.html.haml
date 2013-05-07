@@ -1,0 +1,13 @@
+%section{:id => 'content_testimonials_new'}
+  .sidebar
+    .sidebar_header
+      %h2 New Testimonial
+    .sidebar_nav
+      %nav.content_nav
+        %div{:class => 'selected'}
+          %a{:href => '#testimonial'} Testimonial
+    .sidebar_buttons
+      = submit_tag 'Save', :form => 'new_testimonial'
+      = link_to 'Back to testimonials', content_testimonials_path
+  .content
+    = render :partial => 'form', :locals => {:testimonial => @testimonial, :url => content_testimonials_path}

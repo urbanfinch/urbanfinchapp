@@ -1,0 +1,35 @@
+%section{:id => 'content_blurbs_index'}
+  .heading
+    %h2 Blurbs
+    %nav
+      = link_to 'Create new blurb', new_content_blurb_path
+  %hr
+  /= render :partial => 'shared/filter', :locals => {:objects => @blurbs, :search => @search, :path => :content_blurbs_path, :recent => true}
+  - unless @blurbs.empty?
+    %table
+      %thead
+        %tr
+          %th
+          %th Identifier
+          %th Title
+          %th Subtitle
+          %th View
+          %th Edit
+          %th Delete
+      %tbody
+        - @blurbs.each do |blurb|
+          %tr
+            %td
+              = image_tag(blurb.image.url, :size => "60x60", :alt => "Image")
+            %td= blurb.identifier
+            %td= blurb.title
+            %td= blurb.subtitle
+            %td
+              = link_to 'View', content_blurb_path(blurb)
+            %td
+              = link_to 'Edit', edit_content_blurb_path(blurb)
+            %td
+              = link_to 'Delete', content_blurb_path(blurb), :confirm => 'Are you sure?', :method => :delete
+  - else
+    %p.center No blurbs found
+  /= render :partial => 'shared/pagination', :locals => {:objects => @blurbs, :search => @search, :path => :content_blurbs_path}

@@ -1,0 +1,23 @@
+= render :partial => 'shared/error', :locals => {:object => map}
+= form_for map, :url => url do |f|
+  %div{:id => 'map', :class => 'content_div'}
+    %h2 Map
+    %hr
+    %div.hidden
+      = f.hidden_field :account_id
+    %div
+      = f.label :center, 'Center'
+      = f.text_field :center
+    %div
+      = f.label :zoom, 'Zoom'
+      = f.number_field :zoom
+    %div
+      = label_tag 'Preview'
+      %a{:href => URI::escape("http://maps.google.com/maps?q=#{map.center}")}
+        %img{:src => URI::escape("http://maps.googleapis.com/maps/api/staticmap?center=#{map.center}&zoom=#{map.zoom}&size=300x300&markers=#{map.center}&sensor=false")}
+  %div{:id => 'administrator', :class => 'content_div'}
+    %h2 Administrator
+    %hr
+    %div
+      = f.label :identifier, 'Identifier'
+      = f.text_field :identifier

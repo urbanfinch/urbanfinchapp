@@ -1,0 +1,30 @@
+%section{:id => 'content_lists_index'}
+  .heading
+    %h2 Lists
+    %nav
+      = link_to 'Create new list', new_content_list_path
+  %hr
+  /= render :partial => 'shared/filter', :locals => {:objects => @lists, :search => @search, :path => :content_lists_path, :recent => true}
+  - unless @lists.empty?
+    %table
+      %thead
+        %tr
+          %th Identifier
+          %th Title
+          %th View
+          %th Edit
+          %th Delete
+      %tbody
+        - @lists.each do |list|
+          %tr
+            %td= list.identifier
+            %td= list.title
+            %td
+              = link_to 'View', content_list_path(list)
+            %td
+              = link_to 'Edit', edit_content_list_path(list)
+            %td
+              = link_to 'Delete', content_list_path(list), :confirm => 'Are you sure?', :method => :delete
+  - else
+    %p.center No lists found
+  /= render :partial => 'shared/pagination', :locals => {:objects => @lists, :search => @search, :path => :content_lists_path}

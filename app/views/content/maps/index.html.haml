@@ -1,0 +1,33 @@
+%section{:id => 'content_maps_index'}
+  .heading
+    %h2 Maps
+    %nav
+      = link_to 'Create new map', new_content_map_path
+  %hr
+  /= render :partial => 'shared/filter', :locals => {:objects => @maps, :search => @search, :path => :content_maps_path, :recent => true}
+  - unless @maps.empty?
+    %table
+      %thead
+        %tr
+          %th
+          %th Identifier
+          %th Center
+          %th View
+          %th Edit
+          %th Delete
+      %tbody
+        - @maps.each do |map|
+          %tr
+            %td
+              %img{:src => URI::escape("http://maps.googleapis.com/maps/api/staticmap?center=#{map.center}&zoom=#{map.zoom}&size=60x60&markers=#{map.center}&sensor=false")}
+            %td= map.identifier
+            %td= map.center
+            %td
+              = link_to 'View', content_map_path(map)
+            %td
+              = link_to 'Edit', edit_content_map_path(map)
+            %td
+              = link_to 'Delete', content_map_path(map), :confirm => 'Are you sure?', :method => :delete
+  - else
+    %p.center No maps found
+  /= render :partial => 'shared/pagination', :locals => {:objects => @maps, :search => @search, :path => :content_maps_path}

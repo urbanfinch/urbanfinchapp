@@ -1,0 +1,65 @@
+%section{:id => 'content_employees_show'}
+  .sidebar
+    .sidebar_header
+      = image_tag(@employee.image.url, :size => "60x60", :alt => "Image")
+      %h2 View Employee
+    .sidebar_nav
+      %nav.content_nav
+        %div{:class => 'selected'}
+          %a{:href => '#employee'} Employee
+        %div
+          %a{:href => '#phones'} Phones
+        %div
+          %a{:href => '#urls'} URLs
+    .sidebar_buttons
+      = link_to 'Edit', edit_content_employee_path(@employee)
+      = link_to 'Back to employees', content_employees_path
+  .content
+    %div{:id => 'employee', :class => 'content_div'}
+      %h2 Employee
+      %hr
+      %div
+        %dl
+          %dt Name
+          %dd= @employee.name
+      %div
+        %dl
+          %dt Title
+          %dd= @employee.title
+      %div
+        %dl
+          %dt Subtitle
+          %dd= @employee.subtitle
+      %div
+        %dl
+          %dt Email
+          %dd= @employee.email
+      %div
+        %dl
+          %dt Image
+          %dd
+            = image_tag(@employee.image.url, :alt => "Image")
+    %div{:id => 'phones', :class => 'content_div'}
+      %h2 Phones
+      %hr
+      - @employee.phones.each do |phone|
+        %div
+          %dl
+            %dt Type
+            %dd= phone.type
+        %div
+          %dl
+            %dt Number
+            %dd= phone.number
+    %div{:id => 'urls', :class => 'content_div'}
+      %h2 URLs
+      %hr
+      - @employee.urls.each do |url|
+        %div
+          %dl
+            %dt Name
+            %dd= url.name
+        %div
+          %dl
+            %dt URL
+            %dd= url.url

@@ -1,0 +1,13 @@
+= render :partial => 'shared/error', :locals => {:object => testimonial}
+= form_for testimonial, :url => url do |f|
+  %div{:id => 'testimonial', :class => 'content_div'}
+    %h2 Testimonial
+    %hr
+    %div.hidden
+      = f.hidden_field :account_id
+    %div
+      = f.label :name, 'Name'
+      = f.text_field :name
+    %div
+      = f.label :quote, 'Quote'
+      = f.text_area :quote, :rows => 3

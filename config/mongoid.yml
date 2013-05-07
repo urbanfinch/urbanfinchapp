@@ -9,7 +9,7 @@ production:
 development:
   sessions:
     default:
-      database: urbanfinchcms_development
+      database: urbanfinchapp_development
       hosts:
         - localhost:27017
       options:
@@ -20,7 +20,7 @@ development:
 test:
   sessions:
     default:
-      database: urbanfinchcms_test
+      database: urbanfinchapp_test
       hosts:
         - localhost:27017
       options:

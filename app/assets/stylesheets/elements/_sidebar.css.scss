@@ -4,14 +4,14 @@ div.sidebar {
   
   div.sidebar_header {
     position: relative;
-    height: 60px;
+    height: 48px;
     margin-bottom: 20px;
     @include clearfix;
     
     img {
       position: absolute;
       max-width: 245px;
-      max-height: 60px;
+      max-height: 48px;
     }
     
     h2 {
@@ -20,7 +20,7 @@ div.sidebar {
       margin: 0px;
       padding: 0px;
       padding-right: 35px;
-      line-height: 60px;
+      line-height: 48px;
       font-size: 14px;
       overflow: hidden;
       text-align: right;

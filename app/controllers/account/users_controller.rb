@@ -38,7 +38,7 @@ class Account::UsersController < ApplicationController
     if @user
       render :edit
     else
-      redirect_to account_users_path(:token => current_account.token)
+      redirect_to account_users_path
     end
   end
   
@@ -54,10 +54,7 @@ class Account::UsersController < ApplicationController
   
   def destroy
     @user = User.find_by(:id => params[:id])
-    @user.username = "__#{@user.username}"
-    @user.email = "__#{@user.email}"
-    @user.active = false
-    @user.save
+    @user.destroy
     
     redirect_to account_users_path, :notice => 'User deleted successfully!'
   end

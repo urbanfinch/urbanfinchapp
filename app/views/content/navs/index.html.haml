@@ -1,0 +1,30 @@
+%section{:id => 'content_navs_index'}
+  .heading
+    %h2 Navs
+    %nav
+      = link_to 'Create new nav', new_content_nav_path
+  %hr
+  /= render :partial => 'shared/filter', :locals => {:objects => @navs, :search => @search, :path => :content_navs_path, :recent => true}
+  - unless @navs.empty?
+    %table
+      %thead
+        %tr
+          %th Identifier
+          %th Name
+          %th View
+          %th Edit
+          %th Delete
+      %tbody
+        - @navs.each do |nav|
+          %tr
+            %td= nav.identifier
+            %td= nav.name
+            %td
+              = link_to 'View', content_nav_path(nav)
+            %td
+              = link_to 'Edit', edit_content_nav_path(nav)
+            %td
+              = link_to 'Delete', content_nav_path(nav), :confirm => 'Are you sure?', :method => :delete
+  - else
+    %p.center No navs found
+  /= render :partial => 'shared/pagination', :locals => {:objects => @navs, :search => @search, :path => :content_navs_path}

@@ -1,0 +1,30 @@
+%section{:id => 'content_testimonials_index'}
+  .heading
+    %h2 Testimonials
+    %nav
+      = link_to 'Create new testimonial', new_content_testimonial_path
+  %hr
+  /= render :partial => 'shared/filter', :locals => {:objects => @testimonials, :search => @search, :path => :content_testimonials_path, :recent => true}
+  - unless @testimonials.empty?
+    %table
+      %thead
+        %tr
+          %th Name
+          %th Quote
+          %th View
+          %th Edit
+          %th Delete
+      %tbody
+        - @testimonials.each do |testimonial|
+          %tr
+            %td= testimonial.name
+            %td= testimonial.quote.truncate(50)
+            %td
+              = link_to 'View', content_testimonial_path(testimonial)
+            %td
+              = link_to 'Edit', edit_content_testimonial_path(testimonial)
+            %td
+              = link_to 'Delete', content_testimonial_path(testimonial), :confirm => 'Are you sure?', :method => :delete
+  - else
+    %p.center No testimonials found
+  /= render :partial => 'shared/pagination', :locals => {:objects => @testimonials, :search => @search, :path => :content_testimonials_path}

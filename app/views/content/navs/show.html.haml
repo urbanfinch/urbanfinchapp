@@ -1,0 +1,50 @@
+%section{:id => 'content_navs_show'}
+  .sidebar
+    .sidebar_header
+      %h2 View Nav
+    .sidebar_nav
+      %nav.content_nav
+        %div{:class => 'selected'}
+          %a{:href => '#nav'} Nav
+        %div
+          %a{:href => '#links'} Links
+    .sidebar_buttons
+      = link_to 'Edit', edit_content_nav_path(@nav)
+      = link_to 'Back to navs', content_navs_path
+  .content
+    %div{:id => 'nav', :class => 'content_div'}
+      %h2 Nav
+      %hr
+      %div
+        %dl
+          %dt Identifier
+          %dd= @nav.identifier
+      %div
+        %dl
+          %dt Name
+          %dd= @nav.name
+      %div
+        %dl
+          %dt Description
+          %dd= @nav.description
+    %div{:id => 'links', :class => 'content_div'}
+      %h2 Links
+      %hr
+      - @nav.links.each do |link|
+        %div
+          %dl
+            %dt Name
+            %dd= link.name
+        %div
+          %dl
+            %dt URL
+            %dd= link.url
+        %div
+          %dl
+            %dt Description
+            %dd= link.description
+        %div
+          %dl
+            %dt Image
+            %dd
+              = image_tag link.image.url

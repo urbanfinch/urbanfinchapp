@@ -1,0 +1,27 @@
+= render :partial => 'shared/error', :locals => {:object => post}
+= form_for post, :url => url do |f|
+  %div{:id => 'post', :class => 'content_div'}
+    %h2 Post
+    %hr
+    %div.hidden
+      = f.hidden_field :account_id
+    %div
+      = f.label :title, 'Title'
+      = f.text_field :title
+    %div
+      = f.label :summary, 'Summary'
+      = f.text_area :summary, :rows => 3
+    %div
+      = f.label :content, 'Content'
+      = f.text_area :content, :rows => 10
+    %div
+      = f.label :published, 'Published'
+      = f.check_box :published
+    %div
+      = f.label :image, 'Image'
+      = f.file_field :image
+    %div
+      %label
+      = f.text_field :image_url, :placeholder => 'http://example.com/path/to/image.png'
+    %div.help
+      %p Image will be automatically resized

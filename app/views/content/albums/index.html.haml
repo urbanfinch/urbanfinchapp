@@ -1,0 +1,33 @@
+%section{:id => 'content_albums_index'}
+  .heading
+    %h2 Albums
+    %nav
+      = link_to 'Create new album', new_content_album_path
+  %hr
+  /= render :partial => 'shared/filter', :locals => {:objects => @albums, :search => @search, :path => :content_albums_path, :recent => true}
+  - unless @albums.empty?
+    %table
+      %thead
+        %tr
+          %th
+          %th Identifier
+          %th Name
+          %th View
+          %th Edit
+          %th Delete
+      %tbody
+        - @albums.each do |album|
+          %tr
+            %td
+              = image_tag(album.image.url, :size => "60x60", :alt => "Image")
+            %td= album.identifier
+            %td= album.name
+            %td
+              = link_to 'View', content_album_path(album)
+            %td
+              = link_to 'Edit', edit_content_album_path(album)
+            %td
+              = link_to 'Delete', content_album_path(album), :confirm => 'Are you sure?', :method => :delete
+  - else
+    %p.center No albums found
+  /= render :partial => 'shared/pagination', :locals => {:objects => @albums, :search => @search, :path => :content_albums_path}

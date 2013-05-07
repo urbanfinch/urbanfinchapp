@@ -9,15 +9,9 @@
     %div
       = f.label :token, 'Token'
       = f.text_field :token, :required => true
-  %div{:id => 'billing', :class => 'content_div'}
-    %h2 Billing
-    %hr
-    %p= "Account Created: #{account.created_at.strftime("%m/%d/%Y")}"
-    %p= "Account Type: Beta"
   %div{:id => 'api', :class => 'content_div'}
     %h2 API Key
     %hr
-    %p Information about API usage...
     %div
       = f.label :api_secret, 'API Key'
       = f.text_field :api_secret, :disabled => true

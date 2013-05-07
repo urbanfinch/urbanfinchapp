@@ -1,0 +1,18 @@
+%section{:id => 'content_employees_edit'}
+  .sidebar
+    .sidebar_header
+      = image_tag(@employee.image.url, :size => "60x60", :alt => "Image")
+      %h2 Edit Employee
+    .sidebar_nav
+      %nav.content_nav
+        %div{:class => 'selected'}
+          %a{:href => '#employee'} Employee
+        %div
+          %a{:href => '#phones'} Phones
+        %div
+          %a{:href => '#urls'} URLs
+    .sidebar_buttons
+      = submit_tag 'Save', :form => "edit_employee_#{@employee.id}"
+      = link_to 'Back to employees', content_employees_path
+  .content
+    = render :partial => 'form', :locals => {:employee => @employee, :url => content_employee_path}

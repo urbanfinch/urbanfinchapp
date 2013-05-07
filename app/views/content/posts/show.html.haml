@@ -1,0 +1,38 @@
+%section{:id => 'content_posts_show'}
+  .sidebar
+    .sidebar_header
+      = image_tag(@post.image.url, :size => "60x60", :alt => "Image")
+      %h2 View Post
+    .sidebar_nav
+      %nav.content_nav
+        %div{:class => 'selected'}
+          %a{:href => '#post'} Post
+    .sidebar_buttons
+      = link_to 'Edit', edit_content_post_path(@post)
+      = link_to 'Back to posts', content_posts_path
+  .content
+    %div{:id => 'post', :class => 'content_div'}
+      %h2 Post
+      %hr
+      %div
+        %dl
+          %dt Title
+          %dd= @post.title
+      %div
+        %dl
+          %dt Summary
+          %dd= @post.summary
+      %div
+        %dl
+          %dt Content
+          %dd= simple_format(@post.content)
+      %div
+        %dl
+          %dt Published
+          %dd= @post.published? ? 'Yes' : 'No'
+      %div
+        %dl
+          %dt Image
+          %dd
+            = image_tag(@post.image.url, :alt => "Image")
+      

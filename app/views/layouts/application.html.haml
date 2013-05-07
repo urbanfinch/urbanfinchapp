@@ -15,6 +15,9 @@
             = link_to dashboard_root_path, :class => class_for_link_to_namespace('dashboard') do
               Dashboard
               %span{:class => 'indicator'}
+            = link_to content_root_path, :class => class_for_link_to_namespace('content') do
+              Content
+              %span{:class => 'indicator'}
             = link_to account_root_path, :class => class_for_link_to_namespace('account') do
               Account
               %span{:class => 'indicator'}
@@ -34,8 +37,16 @@
           %nav{:id => 'sub'}
             - if current_namespace?('dashboard')
               = link_to 'Overview', dashboard_overview_path, :class => class_for_link_to_namespace_controller('overview')
-              = link_to 'Messages', dashboard_messages_path, :class => class_for_link_to_namespace_controller('messages')
               = link_to 'Activity', dashboard_activities_path, :class => class_for_link_to_namespace_controller('activities')
+            - if current_namespace?('content')
+              = link_to 'Albums', content_albums_path, :class => class_for_link_to_namespace_controller('albums')
+              = link_to 'Blurbs', content_blurbs_path, :class => class_for_link_to_namespace_controller('blurbs')
+              = link_to 'Employees', content_employees_path, :class => class_for_link_to_namespace_controller('employees')
+              = link_to 'Lists', content_lists_path, :class => class_for_link_to_namespace_controller('lists')
+              = link_to 'Maps', content_maps_path, :class => class_for_link_to_namespace_controller('maps')
+              = link_to 'Navs', content_navs_path, :class => class_for_link_to_namespace_controller('navs')
+              = link_to 'Posts', content_posts_path, :class => class_for_link_to_namespace_controller('posts')
+              = link_to 'Testimonials', content_testimonials_path, :class => class_for_link_to_namespace_controller('testimonials')
             - if current_namespace?('account')
               = link_to 'Account', account_root_path, :class => class_for_link_to_namespace_controller('account')
               = link_to 'Users', account_users_path, :class => class_for_link_to_namespace_controller('users')
