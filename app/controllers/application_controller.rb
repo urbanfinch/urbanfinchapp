@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   
   def current_account
-    @current_account = Account.find_by(:token => request.subdomain)
+    @current_account = Account.find_by(:token => request.subdomains.first)
   end
   helper_method :current_account
   
