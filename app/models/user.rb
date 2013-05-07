@@ -46,7 +46,6 @@ class User
 
   belongs_to      :account
   has_many        :activities
-  has_many        :messages
   
   def self.authenticate(username_or_email, password)
     user = where('$or' => [{"username" => username_or_email}, {"email" => username_or_email}], :active => true).first
