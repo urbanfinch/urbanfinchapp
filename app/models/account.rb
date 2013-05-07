@@ -20,7 +20,6 @@ class Account
   has_many :employees,    :dependent => :destroy
   has_many :lists,        :dependent => :destroy
   has_many :maps,         :dependent => :destroy
-  has_many :messages,     :dependent => :destroy
   has_many :navs,         :dependent => :destroy
   has_many :posts,        :dependent => :destroy
   has_many :testimonials, :dependent => :destroy
