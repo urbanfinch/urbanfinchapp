@@ -4,6 +4,7 @@ class Image
   
   field :name,        :type => String
   field :description, :type => String
+  field :index,       :type => Integer, :default => 0
   
   attr_accessor :image_url
   

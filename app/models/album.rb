@@ -5,6 +5,7 @@ class Album
   
   field :name,                :type => String
   field :identifier,          :type => String
+  field :index,               :type => Integer, :default => 0
   field :description,         :type => String
   
   attr_accessor :image_url

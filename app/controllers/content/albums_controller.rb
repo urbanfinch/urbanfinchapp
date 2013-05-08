@@ -2,7 +2,7 @@ class Content::AlbumsController < ApplicationController
   before_filter :authenticate
   
   def index
-    @albums = Album.all
+    @albums = Album.asc(:index)
     
     respond_to do |format|
       format.html

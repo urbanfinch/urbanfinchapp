@@ -2,7 +2,7 @@ class Content::EmployeesController < ApplicationController
   before_filter :authenticate
   
   def index
-    @employees = Employee.all
+    @employees = Employee.asc(:index)
     
     respond_to do |format|
       format.html

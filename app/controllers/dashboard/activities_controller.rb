@@ -2,7 +2,7 @@ class Dashboard::ActivitiesController < ApplicationController
   before_filter :authenticate
   
   def index
-    @activities = Activity.all
+    @activities = Activity.desc(:created_at).limit(15)
     
     respond_to do |format|
       format.html

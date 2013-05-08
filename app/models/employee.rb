@@ -4,6 +4,7 @@ class Employee
   include Mongoid::Paperclip
   
   field :email,           :type => String
+  field :index,           :type => Integer, :default => 0
   field :name,            :type => String
   field :subtitle,        :type => String
   field :title,           :type => String
