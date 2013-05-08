@@ -8,7 +8,9 @@ class Album
   field :index,               :type => Integer, :default => 0
   field :description,         :type => String
   
-  attr_accessor :image_url
+  attr_accessor :image_url, :image_delete
+  
+  before_validation { image.clear if image_delete == '1' }
   
   has_mongoid_attached_file :image,
     :default_url => '/assets/missing/:attachment/missing_:style.png'

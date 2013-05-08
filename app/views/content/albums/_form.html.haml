@@ -22,6 +22,9 @@
       = f.text_field :image_url, :placeholder => 'http://example.com/path/to/image.png'
     %div.help
       %p Image will be automatically resized
+    %div
+      = f.label :image_delete, 'Remove Image?'
+      = f.check_box :image_delete
   %div{:id => 'images', :class => 'content_div'}
     .heading
       %h2 Images
