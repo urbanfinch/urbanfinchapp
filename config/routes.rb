@@ -1,4 +1,6 @@
 Urbanfinchapp::Application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
+
   namespace :account do
     root :to => 'account#edit'
     resource :account, :only => [:edit, :update], :controller => :account do

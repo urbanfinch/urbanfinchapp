@@ -12,6 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require chart
+//= require ckeditor/init
 //= require urbanfinchapp
 //= require_tree .

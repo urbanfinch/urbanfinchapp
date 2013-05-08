@@ -12,9 +12,6 @@
       = f.label :summary, 'Summary'
       = f.text_area :summary, :rows => 3
     %div
-      = f.label :content, 'Content'
-      = f.text_area :content, :rows => 10
-    %div
       = f.label :published, 'Published'
       = f.check_box :published
     %div
@@ -25,3 +22,8 @@
       = f.text_field :image_url, :placeholder => 'http://example.com/path/to/image.png'
     %div.help
       %p Image will be automatically resized
+  %div{:id => 'content', :class => 'content_div'}
+    %h2 Content
+    %hr
+    %div
+      = f.cktext_area :content, :ckeditor => {:toolbar => 'urbanfinch', :height => 400}

@@ -7,6 +7,8 @@
       %nav.content_nav
         %div{:class => 'selected'}
           %a{:href => '#post'} Post
+        %div
+          %a{:href => '#content'} Content
     .sidebar_buttons
       = submit_tag 'Save', :form => "edit_post_#{@post.id}"
       = link_to 'Back to posts', content_posts_path

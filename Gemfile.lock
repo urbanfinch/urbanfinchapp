@@ -43,6 +43,9 @@ GEM
       sass (>= 3.2.0)
       thor
     builder (3.0.4)
+    ckeditor (4.0.4)
+      mime-types
+      orm_adapter
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.1)
@@ -98,6 +101,7 @@ GEM
     multi_json (1.7.2)
     nokogiri (1.5.9)
     origin (1.1.0)
+    orm_adapter (0.4.0)
     paperclip (3.4.1)
       activemodel (>= 3.0.0)
       activerecord (>= 3.0.0)
@@ -169,6 +173,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bourbon
+  ckeditor
   coffee-rails (~> 3.2.1)
   haml-rails
   jquery-rails

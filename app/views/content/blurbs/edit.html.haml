@@ -7,6 +7,8 @@
       %nav.content_nav
         %div{:class => 'selected'}
           %a{:href => '#blurb'} Blurb
+        %div
+          %a{:href => '#content'} Content
         - if current_user.administrator?
           %div
             %a{:href => '#administrator'} Administrator

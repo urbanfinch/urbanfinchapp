@@ -36,6 +36,7 @@ gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'kaminari'
 gem 'uuid'
 gem 'bourbon'
+gem 'ckeditor'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -70,5 +70,6 @@ module Urbanfinchapp
     end
     
     config.autoload_paths << "#{config.root}/lib/validators"
+    config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
   end
 end

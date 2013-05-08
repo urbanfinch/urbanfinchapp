@@ -7,6 +7,8 @@
       %nav.content_nav
         %div{:class => 'selected'}
           %a{:href => '#blurb'} Blurb
+        %div
+          %a{:href => '#content'} Content
     .sidebar_buttons
       = link_to 'Edit', edit_content_blurb_path(@blurb)
       = link_to 'Back to blurbs', content_blurbs_path
@@ -28,10 +30,10 @@
           %dd= @blurb.subtitle
       %div
         %dl
-          %dt Content
-          %dd= @blurb.content
-      %div
-        %dl
           %dt Image
           %dd
             = image_tag(@blurb.image.url, :alt => "Image")
+    %div{:id => 'content', :class => 'content_div'}
+      %h2 Content
+      %hr
+      %div= raw @blurb.content
