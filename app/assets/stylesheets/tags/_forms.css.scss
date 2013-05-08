@@ -70,6 +70,13 @@ form {
       font-size: 10px;
     }
   }
+  
+  div.preview {
+    img {
+      width: 70%;
+      max-width: 70%;
+    }
+  }
 }
 
 input[type=submit] {
