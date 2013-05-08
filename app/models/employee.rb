@@ -24,7 +24,7 @@ class Employee
   embeds_many :phones, :cascade_callbacks => true
   embeds_many :urls,   :cascade_callbacks => true
   
-  accepts_nested_attributes_for :phones, :urls
+  accepts_nested_attributes_for :phones, :urls, :allow_destroy => true
   
   def image_url=(url)
     unless url.to_s.empty?

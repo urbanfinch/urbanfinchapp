@@ -13,5 +13,5 @@ class Nav
   belongs_to  :account
   embeds_many :links, cascade_callbacks: true
   
-  accepts_nested_attributes_for :links
+  accepts_nested_attributes_for :links, :allow_destroy => true
 end

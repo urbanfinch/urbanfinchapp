@@ -20,7 +20,7 @@ class Album
   belongs_to  :account
   embeds_many :images, cascade_callbacks: true
   
-  accepts_nested_attributes_for :images
+  accepts_nested_attributes_for :images, :allow_destroy => true
   
   def image_url=(url)
     unless url.to_s.empty?

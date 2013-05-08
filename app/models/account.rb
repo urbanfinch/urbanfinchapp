@@ -27,6 +27,8 @@ class Account
   
   embeds_many :properties
   
+  accepts_nested_attributes_for :properties, :allow_destroy => true
+  
   def self.current_id=(id)
     Thread.current[:current_id] = id
   end

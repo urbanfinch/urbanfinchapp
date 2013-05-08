@@ -12,5 +12,5 @@ class List
   belongs_to  :account
   embeds_many :bullets, :cascade_callbacks => true
   
-  accepts_nested_attributes_for :bullets
+  accepts_nested_attributes_for :bullets, :allow_destroy => true
 end
