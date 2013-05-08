@@ -19,6 +19,10 @@
     = f.text_field :image_url, :placeholder => 'http://example.com/path/to/image.png'
   %div.help
     %p Image will be automatically resized
+  - if f.object.image?
+    %div.preview
+      %label
+      = image_tag f.object.image.url
   %div
     = f.label :_destroy, 'Remove'
     = f.hidden_field :_destroy
