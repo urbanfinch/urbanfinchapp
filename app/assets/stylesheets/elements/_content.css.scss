@@ -8,5 +8,11 @@ div.content {
   
   div.content_div {
     margin-bottom: 40px;
+    
+    div {
+      width: 704px;
+      max-width: 704px;
+      overflow: auto;
+    }
   }
 }
