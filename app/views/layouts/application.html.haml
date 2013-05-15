@@ -51,11 +51,7 @@
               = link_to 'Account', account_root_path, :class => class_for_link_to_namespace_controller('account')
               = link_to 'Users', account_users_path, :class => class_for_link_to_namespace_controller('users')
     .container
-      .flash
-        - if flash[:notice]
-          %p.notice= flash[:notice]
-        - if flash[:alert]
-          %p.alert= flash[:alert]
+      = render :partial => 'shared/flash'
       = yield
     %footer
       %p

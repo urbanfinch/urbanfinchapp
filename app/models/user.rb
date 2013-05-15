@@ -48,7 +48,7 @@ class User
   has_many        :activities
   
   def self.authenticate(username_or_email, password)
-    user = where('$or' => [{"username" => username_or_email}, {"email" => username_or_email}], :active => true).first
+    user = where('$or' => [{"username" => username_or_email}, {"email" => username_or_email}], :active => true, :locked => false).first
     if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
       user
     else
