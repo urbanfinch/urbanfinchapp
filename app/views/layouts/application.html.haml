@@ -51,7 +51,7 @@
               = link_to 'Account', account_root_path, :class => class_for_link_to_namespace_controller('account')
               = link_to 'Users', account_users_path, :class => class_for_link_to_namespace_controller('users')
     .container
-      = render :partial => 'shared/flash'
+      = render :partial => 'shared/flash', :locals => {:flash => flash}
       = yield
     %footer
       %p

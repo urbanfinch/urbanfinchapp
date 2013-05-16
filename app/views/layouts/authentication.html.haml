@@ -8,7 +8,7 @@
   %body
     .container
       = image_tag 'logo_small.png', :id => 'logo'
-      = render :partial => 'shared/flash'
+      = render :partial => 'shared/flash', :locals => {:flash => flash}
       = yield
       .footer
         %p
