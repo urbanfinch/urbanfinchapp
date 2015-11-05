@@ -3,6 +3,7 @@ production:
     default:
       uri: <%= ENV['MONGOLAB_URI'] %>
   options:
+    skip_version_check: true
     include_root_in_json: true
     use_activesupport_time_zone: false
     use_utc: false
