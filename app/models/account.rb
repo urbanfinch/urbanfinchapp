@@ -1,7 +1,7 @@
 class Account
   include Mongoid::Document
   include Mongoid::Timestamps
-  
+
   field :api_active,  :type => Boolean,   :default => false
   field :api_secret,  :type => String,    :default => ->{ UUID.generate(:compact) }
   field :title,       :type => String
@@ -9,7 +9,7 @@ class Account
 
   validates_presence_of     :token, :api_secret
   validates_uniqueness_of   :token
-  validates_format_of       :token, :with => /\A[a-z0-9_]+\z/, 
+  validates_format_of       :token, :with => /\A[a-z0-9_]+\z/,
                                     :message => "must contain only lowercase letters, numbers and underscores."
   validates_length_of       :api_secret,  :is => 32
 
@@ -24,11 +24,11 @@ class Account
   has_many :posts,        :dependent => :destroy
   has_many :testimonials, :dependent => :destroy
   has_many :users,        :dependent => :destroy
-  
+
   embeds_many :properties
-  
+
   accepts_nested_attributes_for :properties, :allow_destroy => true
-  
+
   def self.current_id=(id)
     Thread.current[:current_id] = id
   end
@@ -36,7 +36,7 @@ class Account
   def self.current_id
     Thread.current[:current_id]
   end
-  
+
   def set_current
     self.class.current_id = self.id
   end
@@ -48,7 +48,7 @@ class Account
     end
     return count
   end
-  
+
   def reset!
     self.associations.keys.each do |relation|
       self.send(relation.to_s).destroy_all

@@ -1,4 +1,4 @@
-Urbanfinchapp::Application.routes.draw do
+Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
   namespace :account do
@@ -10,7 +10,7 @@ Urbanfinchapp::Application.routes.draw do
     end
     resources :users
   end
-  
+
   namespace :content do
     root :to => 'albums#index'
     resources :albums
@@ -22,13 +22,13 @@ Urbanfinchapp::Application.routes.draw do
     resources :posts
     resources :testimonials
   end
-  
+
   namespace :dashboard do
     root :to => 'overview#index'
     get 'overview' => 'overview#index'
     resources :activities, :only => [:index]
   end
-  
+
   get 'login' => 'authentication#login'
   post 'login' => 'authentication#login_create'
   get 'logout' => 'authentication#login_destroy'
@@ -36,10 +36,10 @@ Urbanfinchapp::Application.routes.draw do
   post 'recover' => 'authentication#recover_process'
   get 'reset' => 'authentication#reset'
   post 'reset' => 'authentication#reset_process'
- 
+
   root :to => 'dashboard/overview#index'
-  match '*path', :to => 'dashboard/overview#index'
-  
+  #match '*path', :to => 'dashboard/overview#index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
