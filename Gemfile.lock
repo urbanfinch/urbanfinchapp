@@ -181,6 +181,7 @@ DEPENDENCIES
   mongoid
   mongoid-ancestry
   mongoid-paperclip
+  moped
   powder
   puma
   rails (= 3.2.13)
